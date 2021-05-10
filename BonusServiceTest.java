@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BonusServiceTest {
 
     @org.junit.jupiter.api.Test
+    // для незарегистрированных пользователей до лимита:
     void calculateforunregistredunderlimit() {
         BonusService service = new BonusService();
 
@@ -21,6 +22,7 @@ class BonusServiceTest {
     }
 
     @org.junit.jupiter.api.Test
+    // для незарегистированных пользователей сверх лимита:
     void calculateforunregistredoverlimit() {
         BonusService service = new BonusService();
 
@@ -38,6 +40,7 @@ class BonusServiceTest {
 
 
     @org.junit.jupiter.api.Test
+    // для зарегистированных пользователей с отрицательной стоимостью:
     void calculateforregistrednegative() {
         BonusService service = new BonusService();
 
@@ -55,6 +58,7 @@ class BonusServiceTest {
 
 
     @org.junit.jupiter.api.Test
+    // для зарегистированных пользователей с нулевой стоимостью:
     void calculateforregistredzero() {
         BonusService service = new BonusService();
 
