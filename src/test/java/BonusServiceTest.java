@@ -37,6 +37,7 @@ class BonusServiceTest {
     }
 
     @org.junit.jupiter.api.Test
+<<<<<<< HEAD
         // для зарегистированных пользователей с отрицательной стоимостью:
     void calculateforregistrednegative() {
         BonusService service = new BonusService();
@@ -45,6 +46,16 @@ class BonusServiceTest {
         long amount = - 1000_60;
         boolean registered = true;
         long expected = - 30;
+=======
+        // для зарегистированных пользователей до лимита:
+    void calculateforregistredunderlimit() {
+        BonusService service = new BonusService();
+
+        // подготавливаем данные:
+        long amount = 1000_60;
+        boolean registered = true;
+        long expected = 30;
+>>>>>>> 802c77b (added tests)
 
         // вызываем целевой метод:
         long actual = service.calculate(amount,registered);
@@ -69,4 +80,24 @@ class BonusServiceTest {
         // производим проверку (сравниваем ожидаемый и фактический):
         assertEquals(expected,actual);
     }
+<<<<<<< HEAD
+=======
+
+    @org.junit.jupiter.api.Test
+        // для зарегистированных пользователей сверх лимита:
+    void calculateforregistredoverlimit() {
+        BonusService service = new BonusService();
+
+        // подготавливаем данные:
+        long amount = 1000_000_60;
+        boolean registered = true;
+        long expected = 500;
+
+        // вызываем целевой метод:
+        long actual = service.calculate(amount,registered);
+
+        // производим проверку (сравниваем ожидаемый и фактический):
+        assertEquals(expected,actual);
+    }
+>>>>>>> 802c77b (added tests)
 }
